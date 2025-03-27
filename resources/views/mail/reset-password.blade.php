@@ -1,0 +1,1 @@
+<p>Mật khẩu mới của bạn là: <strong>{{$new_password}}</strong></p>
