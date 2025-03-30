@@ -9,20 +9,21 @@
         @include('candidate.includes.header')
         <!-- // header -->
 
-
         <!-- contents -->
         @yield('content')
         <!-- // contents -->
-
 
         <!-- footer -->
         @include('candidate.includes.footer')
         <!-- // footer -->
     </div>
 
+    <!-- Nhúng chatbot -->
+    @include('partials.chatbot')
+
     <!-- Toast notification -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     @if(session()->has('success'))
     <script>
@@ -30,9 +31,7 @@
             "progressBar": true,
             "closeButton": true
         }
-        toastr.success("{{session('success')}}", 'Thành công!', {
-            timeOut: 3000
-        });
+        toastr.success("{{ session('success') }}", 'Thành công!', { timeOut: 3000 });
     </script>
     @endif
 
@@ -42,9 +41,7 @@
             "progressBar": true,
             "closeButton": true
         }
-        toastr.error("{{session('error')}}", 'Thất bại!', {
-            timeOut: 3000
-        });
+        toastr.error("{{ session('error') }}", 'Thất bại!', { timeOut: 3000 });
     </script>
     @endif
 
@@ -56,7 +53,8 @@
     <script src="/assets/candidate/lib/waypoints/waypoints.min.js"></script>
     <script src="/assets/candidate/lib/owlcarousel/owl.carousel.min.js"></script>
 
-
+    <!-- Chatbot -->
+    <script src="{{ asset('js/chatbot.js') }}"></script>
 
     <!-- Template Javascript -->
     <script src="/assets/candidate/js/main.js"></script>
